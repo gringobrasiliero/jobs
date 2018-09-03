@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
             <ul>
               <li><Link to={'/'}>Home</Link></li>
               <li><Link to={'/Jobs'}>Jobs</Link></li>
+              <li><Link to={'/Applications'}>Applications</Link></li>
             </ul>
           </header>
       </div>
