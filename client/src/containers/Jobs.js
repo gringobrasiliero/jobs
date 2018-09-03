@@ -3,7 +3,9 @@ import {fetchJobs} from '../actions/job-actions'
 import {bindActionCreators} from 'redux'
 import { connect } from 'react-redux';
 import JobsList from '../components/jobs/JobsList'
-
+import { Route, Switch } from 'react-router-dom';
+import JobsShow from './JobsShow'
+import JobsIndex from './JobsIndex'
 
 class Jobs extends Component {
   constructor(props) {
@@ -21,9 +23,10 @@ componentDidMount() {
     const {match} = this.props;
     return (
       <React.Fragment>
-
-      <JobsList jobs={this.props.jobs} />
-
+        <Switch>
+        <Route exact path={`${match.url}/:jobId`} component={JobsShow} />
+        <Route exact path={`${match.url}`} component={JobsIndex} />
+        </Switch>
       </React.Fragment>
 
     )
