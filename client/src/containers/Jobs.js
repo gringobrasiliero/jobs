@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-
+import {fetchJobs} from '../actions/job-actions'
+import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux';
 
 class Jobs extends Component {
+
+componentDidMount() {
+  this.props.fetchJobs();
+
+}
 
 
   render() {
@@ -18,4 +25,14 @@ class Jobs extends Component {
 }
 
 
-export default Jobs
+const mapStateToProps = state => ({
+  jobs: state.jobs
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchJobs: bindActionCreators(fetchJobs, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Jobs);
