@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import {fetchJobs} from '../actions/job-actions'
 import {bindActionCreators} from 'redux'
 import { connect } from 'react-redux';
+import JobsList from '../components/jobs/JobsList'
+
 
 class Jobs extends Component {
+  constructor(props) {
+      super(props)
+
+    }
 
 componentDidMount() {
   this.props.fetchJobs();
@@ -16,8 +22,7 @@ componentDidMount() {
     return (
       <React.Fragment>
 
-      <h1>Hi</h1>
-
+      <JobsList jobs={this.props.jobs} />
 
       </React.Fragment>
 
