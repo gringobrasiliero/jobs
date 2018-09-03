@@ -4,7 +4,7 @@ import JobsList from '../components/jobs/JobsList'
 
 const JobsIndex = (props) => {
   return(
-    <JobsList jobs={props.jobs} />
+    <JobsList jobs={props.jobs} handleClick={props.handleClick} />
   )
 }
 

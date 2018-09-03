@@ -1,8 +1,8 @@
 export const FETCH_JOB_APPLICATIONS = 'FETCH_JOB_APPLICATIONS'
 
-export const fetchJobApplications = () => {
+export const fetchJobApplications = (url) => {
   return(dispatch) => {
-    fetch('/job_applications')
+    fetch(url)
     .then(res => res.json())
     .then(jobApplications=> {
       dispatch({
