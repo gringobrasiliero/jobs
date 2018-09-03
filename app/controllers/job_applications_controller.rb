@@ -2,9 +2,14 @@ class JobApplicationsController < ApplicationController
   before_action :set_jobApplication, only: [:show, :update, :destroy]
 
   def index
-    @jobApplications =  JobApplication.all
+
+    if params[:job_id]
+      @jobApplications = Job.find(params[:job_id]).jobApplications
+    else
+      @jobApplications =  JobApplication.all
+    end
     json_response(@jobApplications)
-  end
+    end
 
   def create
     @jobApplication = JobApplication.create!(jobApplication_params)

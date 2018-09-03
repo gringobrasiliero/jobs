@@ -3,4 +3,10 @@ Rails.application.routes.draw do
 
   resources :jobs
   resources :job_applications
+
+  resources :jobs do
+    resources :job_applications
+  end
+
+  
 end
